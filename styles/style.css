@@ -1,0 +1,245 @@
+/* General style */
+@import './fonts.css';
+
+:root {
+  --primaryColor: #3381f3;
+
+  --primaryBgColor: rgb(24, 27, 38);
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif !important;
+  margin: 0;
+  position: relative;
+}
+
+* {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 0;
+}
+
+p {
+  font-weight: 300;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+.primary-button {
+  display: inline-block;
+  padding: 15px 25px;
+  background: var(--primaryColor);
+  color: white;
+  font-size: 15px;
+  font-weight: 300 !important;
+  border: 1px solid var(--primaryColor);
+  border-radius: 50px;
+  transition: all .3s ease-in-out;
+}
+
+.primary-button:hover {
+  background: transparent;
+  color: white;
+}
+
+.section {
+  padding: 30px 0;
+}
+
+
+/* Header */
+.logo a {
+  font-size: 1.5em;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px;
+  /* background: white; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 60px);
+  z-index: 1;
+}
+
+.nav .nav-menu li {
+  display: inline-block;
+}
+
+.nav .nav-menu li + li {
+  margin-left: 30px;
+}
+
+.nav .nav-menu li a {
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+  transition: all .3s ease-in-out;
+}
+
+.nav .nav-menu li a:hover {
+  color: var(--primaryColor);
+}
+
+.nav .nav-menu li.nav-special-link a {
+  padding: 15px 25px;
+  background: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+  border-radius: 50px;
+  transition: all .3s ease-in-out;
+}
+
+.nav .nav-menu li.nav-special-link a:hover {
+  background: transparent;
+  color: white;
+}
+
+/* Header */
+header {
+  width: 100%;
+  height: 100vh;
+  background: var(--primaryBgColor);
+  position: relative;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background: url('/img/tatto.jpg') center/cover;
+}
+
+header .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+header .content h1 {
+  margin-bottom: 15px;
+}
+
+header .content p {
+  margin-bottom: 25px;
+}
+
+/* About */
+.about-us {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-us img {
+  width: auto;
+  height: 500px;
+}
+
+.about-us .left-side h2 {
+  margin-bottom: 15px;
+}
+
+.about-us .right-side {
+  position: relative;
+}
+
+.about-us .right-side::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primaryBgColor);
+  opacity: 0.6;
+}
+
+.about-us .right-side img {
+  display: block;
+  max-height: 500px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section-title h2 {
+  margin-bottom: 15px;
+}
+
+/* Gallery */
+app-gallery {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+app-gallery img {
+  width: calc(25% - 30px);
+  padding: 0 15px;
+  display: inline-block;
+}
+
+.gallery-button {
+  border-radius: 50%;
+  border: none;
+  font-size: 40px;
+  color: var(--primaryColor);
+  line-height: 60px;
+  background: #fff;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,.23);
+  font-size: 24px;
+  padding: 0px 15px;
+}
+
+.gallery-button:focus {
+  outline: 0;
+}
+.gallery-button:first-of-type {
+  position: absolute;
+  top: 50%;
+  left: 26px;
+  transform: translateY(-50%);
+}
+
+.gallery-button:last-of-type {
+  position: absolute;
+  top: 50%;
+  right: 26px;
+  transform: translateY(-50%);
+}
+
+
+footer {
+  padding: 30px 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  background: var(--primaryBgColor);
+}

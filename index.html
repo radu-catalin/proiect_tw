@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ 'app-title' }}</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/responsive.css" />
+  <link rel="stylesheet" type="text/css" href="styles/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">
+      <a href="#"><span>T</span>atto.</a>
+    </div>
+    <ul class="nav-menu">
+      <li class="nav-link">
+        <a href="#">Despre noi</a>
+      </li>
+      <li class="nav-link">
+        <a href="#">Galerie</a>
+      </li>
+      <li class="nav-link">
+        <a href="#">Prețuri</a>
+      </li>
+      <li class="nav-link nav-special-link">
+        <a href="#">Fă o programare</a>
+      </li>
+    </ul>
+  </nav>
+  <header>
+    <div class="content">
+      <h1>Salon de tatuaje în București</h1>
+      <p>some text here</p>
+      <a href="#about-section" class="primary-button">Află mai multe</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="about-section" class="about-us container section">
+      <div class="left-side">
+        <h2>Despre noi</h2>
+        <p>Tatto este un salon de tatuaje ce are sediul in Bucuresti</p>
+      </div>
+      <div class="right-side">
+        <img src="/img/tatto1.jpg" />
+      </div>
+    </section>
+    <section id="gallery-section" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Galerie</h2>
+          <p>O parte din lucrarile noastre.</p>
+        </div>
+        <div class="gallery-wrapper">
+          <app-gallery
+            speed="300ms"
+            auto-increment="true"
+            interval="5000"
+          >
+            <img src="/img/tatto1.jpg" />
+            <img src="/img/tatto1.jpg" />
+            <img src="/img/tatto1.jpg" />
+            <img src="/img/tatto1.jpg" />
+            <img src="/img/tatto1.jpg" />
+            <img src="/img/tatto1.jpg" />
+            <img src="/img/tatto1.jpg" />
+            <img src="/img/tatto1.jpg" />
+          </app-gallery>
+        </div>
+      </div>
+    </section>
+
+    <section id="price-section"></section>
+  </main>
+  <footer>
+    <div class="container">
+      Proiect realizat de Radu Cătălin-Gabriel, Grupa 212
+    </div>
+  </footer>
+  <script type="module" src="scripts/index.js"></script>
+</body>
+</html>
