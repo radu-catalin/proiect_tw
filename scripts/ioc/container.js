@@ -9,8 +9,8 @@ export default class Container {
   }
 
   addDirective(directiveClass) {
-    if (!this.services[directiveClass]) {
-      this.services[directiveClass] = new Map();
+    if (!this.directives[directiveClass]) {
+      this.directives[directiveClass] = new Map();
     }
 
     const directiveCollection = document.querySelectorAll(`[${directiveClass.directiveName}]`);
@@ -22,8 +22,8 @@ export default class Container {
         return;
       }
 
-      this.services[directiveClass][dir] = directiveInstance;
-      this.services[directiveClass][dir].onInit();
+      this.directives[directiveClass][dir] = directiveInstance;
+      this.directives[directiveClass][dir].onInit();
     });
   }
 
@@ -31,8 +31,9 @@ export default class Container {
     return this.services[serviceClass] || this.directives[serviceClass][elementTarget];
   }
 
-  remove(serviceClass) {
+  remove(serviceClass, elementTarget = null) {
     delete this.services[serviceClass];
+    delete this.directives[serviceClass][elementTarget];
   }
 }
 
