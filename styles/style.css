@@ -23,6 +23,7 @@ a {
 
 ul {
   margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -78,6 +79,7 @@ button {
   left: 0;
   width: calc(100% - 60px);
   z-index: 1;
+  transition: all .3s ease-in-out;
 }
 
 .nav .nav-menu li {
@@ -102,6 +104,7 @@ button {
 .nav .nav-menu li.nav-special-link a {
   padding: 15px 25px;
   background: var(--primaryColor);
+  color: white;
   border: 1px solid var(--primaryColor);
   border-radius: 50px;
   transition: all .3s ease-in-out;
@@ -110,6 +113,27 @@ button {
 .nav .nav-menu li.nav-special-link a:hover {
   background: transparent;
   color: white;
+}
+
+.nav.is-sticky {
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 1px 3px rgba(50, 50, 50, 0.2);
+  padding: 35px 30px;
+}
+
+.nav.is-sticky .logo a {
+  color: var(--primaryBgColor);
+}
+
+.nav.is-sticky ul li a {
+  color: var(--primaryBgColor);
+}
+
+.nav.is-sticky .nav-menu li.nav-special-link a:hover {
+  color: var(--primaryColor);
 }
 
 /* Header */
@@ -200,18 +224,59 @@ app-gallery {
   white-space: nowrap;
   position: relative;
 }
-app-gallery img {
+app-gallery figure {
   width: calc(25% - 30px);
   padding: 0 15px;
+  margin: 0;
   display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+app-gallery img {
+  width: 100%;
+  display: block;
+}
+
+app-gallery figure::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: calc(100% - 30px);
+  height: 100%;
+  background: var(--primaryBgColor);
+  opacity: 0;
+  transform: scale(0);
+  transition: all .3s ease-in-out;
+}
+
+app-gallery figcaption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  z-index: 10;
+  opacity: 0.6;
+  transform: scale(0) translate(-50%, -50%);
+  transition: all .3s ease-in-out;
+}
+
+app-gallery figure:hover::after {
+  opacity: 0.6;
+  transform: scale(1);
+}
+
+app-gallery figure:hover figcaption {
+  opacity: 1;
+  transform: scale(1) translate(-50%, -50%);
 }
 
 .gallery-button {
   border-radius: 50%;
   border: none;
-  font-size: 40px;
   color: var(--primaryColor);
-  line-height: 60px;
+  line-height: 50px;
   background: #fff;
   box-shadow: 0 0 5px 0 rgba(0,0,0,.23);
   font-size: 24px;
@@ -235,6 +300,25 @@ app-gallery img {
   transform: translateY(-50%);
 }
 
+@media (max-width: 768px) {
+  app-gallery figure {
+    width: calc(33.33% - 30px);
+    padding: 0 5px;
+  }
+}
+
+/* Prices */
+#price-section .content ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+#price-section .content li {
+  border: 1px solid black;
+  padding: 25px;
+  border-radius: 5px;
+}
 
 footer {
   padding: 30px 0;

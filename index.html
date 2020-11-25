@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ 'app-title' }}</title>
+  <title>Tatto.</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles/responsive.css" />
   <link rel="stylesheet" type="text/css" href="styles/style.css" />
 </head>
 <body>
-  <nav class="nav">
+  <nav class="nav" appStickyNav>
     <div class="logo">
       <a href="#"><span>T</span>atto.</a>
     </div>
-    <ul class="nav-menu">
+    <ul class="nav-menu" appHamburgerMenu>
       <li class="nav-link">
-        <a href="#">Despre noi</a>
+        <a href="#about-section">Despre noi</a>
       </li>
       <li class="nav-link">
-        <a href="#">Galerie</a>
+        <a href="#gallery-section">Galerie</a>
       </li>
       <li class="nav-link">
         <a href="#">Prețuri</a>
@@ -56,23 +56,46 @@
         <div class="gallery-wrapper">
           <app-gallery
             speed="300ms"
-            auto-increment="true"
+            auto-increment="false"
             interval="5000"
           >
-            <img src="/img/tatto1.jpg" />
-            <img src="/img/tatto1.jpg" />
-            <img src="/img/tatto1.jpg" />
-            <img src="/img/tatto1.jpg" />
-            <img src="/img/tatto1.jpg" />
-            <img src="/img/tatto1.jpg" />
-            <img src="/img/tatto1.jpg" />
-            <img src="/img/tatto1.jpg" />
+            <img src="/img/tatto1.jpg" alt="tatuaj 1" />
+            <img src="/img/tatto1.jpg" alt="tatuaj 2" />
+            <img src="/img/tatto1.jpg" alt="tatuaj 3" />
+            <img src="/img/tatto1.jpg" alt="tatuaj 4" />
+            <img src="/img/tatto1.jpg" alt="tatuaj 5" />
+            <img src="/img/tatto1.jpg" alt="tatuaj 6" />
+            <img src="/img/tatto1.jpg" alt="tatuaj 7" />
+            <img src="/img/tatto1.jpg" alt="tatuaj 8" />
           </app-gallery>
         </div>
       </div>
     </section>
 
-    <section id="price-section"></section>
+    <section id="price-section" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Preturi</h2>
+          <p>Preturile pot varia in functie de complexitatea tatuajului</p>
+        </div>
+        <div class="content">
+          <ul>
+            <li>
+              <h2>200 RON / h</h2>
+              <span>Tatuaj Alb/Negru</span>
+            </li>
+            <li>
+              <h2>250 RON / h</h2>
+              <span>Tatuaj Color</span>
+            </li>
+            <li>
+              <h2>300 RON / h</h2>
+              <span>Tatuaj realistic si portrete</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </main>
   <footer>
     <div class="container">

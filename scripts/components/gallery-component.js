@@ -1,5 +1,5 @@
-export class GalleryComponent extends HTMLElement {
-  static componentName = 'app-gallery'
+export default class GalleryComponent extends HTMLElement {
+  static componentName = 'app-gallery';
 
   _speed = '300ms';
   _auto = false;
@@ -26,11 +26,14 @@ export class GalleryComponent extends HTMLElement {
 
   _initProperties() {
     this._speed = this.getAttribute('speed');
-    this._auto = this.getAttribute('auto-increment');
+    this._auto = this.getAttribute('auto-increment') === 'true';
     this._interval = +this.getAttribute('interval');
 
     [...this.children].forEach(img => {
-      this._sources.push(img.getAttribute('src'));
+      this._sources.push({
+        src: img.getAttribute('src'),
+        title: img.getAttribute('alt')
+      });
     });
   }
 
@@ -38,7 +41,12 @@ export class GalleryComponent extends HTMLElement {
     let content = '';
 
     this._sources.forEach(source => {
-      content += `<img src=${source} />`;
+      content += `
+        <figure>
+          <img src=${source.src} />
+          <figcaption>${source.title}</figcaption>
+        </figure>
+      `;
     });
 
     this.innerHTML = `
@@ -61,26 +69,21 @@ export class GalleryComponent extends HTMLElement {
     this.appendChild(this._nextButton);
 
     this._prevButton.addEventListener('click', () => {
-      // restart interval
-      clearInterval(this._intervalSubscription);
       this._startInterval();
-
       this._slideAction(-1)
     });
     this._nextButton.addEventListener('click', () => {
-      // restart interval
-      clearInterval(this._intervalSubscription);
       this._startInterval();
-
       this._slideAction()
     });
   }
 
   _slideAction(direction = 1) {
     const imgWidth = this.children[0].children[0].offsetWidth;
-
+    const numberImgWindow = parseInt(this.offsetWidth / imgWidth + 0.5);
+    console.log(numberImgWindow);
     if (
-        (this._counter + 4 < this._sources.length || direction === -1) &&
+        (this._counter + numberImgWindow < this._sources.length || direction === -1) &&
         this._counter >= 0
       ) {
       this._counter += direction;
@@ -98,6 +101,7 @@ export class GalleryComponent extends HTMLElement {
 
   _startInterval() {
     if (this._auto) {
+      clearInterval(this._intervalSubscription);
       this._intervalSubscription = setInterval(() => {
         this._slideAction();
       }, this._interval);
