@@ -1,4 +1,4 @@
-import { Directive } from './base-directive.js';
+import { Directive } from './directive.js';
 
 export class StickyNavDirective extends Directive {
   static directiveName = 'appStickyNav';

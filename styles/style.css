@@ -1,9 +1,9 @@
 /* General style */
 @import './fonts.css';
+@import './responsive.css';
 
 :root {
   --primaryColor: #3381f3;
-
   --primaryBgColor: rgb(24, 27, 38);
 }
 
@@ -11,10 +11,12 @@ body {
   font-family: 'Josefin Sans', sans-serif !important;
   margin: 0;
   position: relative;
+  min-height: 100vh;
 }
 
 * {
   font-family: 'Josefin Sans', sans-serif;
+  box-sizing: border-box;
 }
 
 a {
@@ -40,6 +42,10 @@ button {
   cursor: pointer;
 }
 
+main {
+  padding-bottom: 80px;
+}
+
 .primary-button {
   display: inline-block;
   padding: 15px 25px;
@@ -57,10 +63,46 @@ button {
   color: white;
 }
 
+.primary-button:disabled {
+  opacity: 0.6;
+}
+
+.primary-button:hover:disabled {
+  background: var(--primaryColor);
+  color: #fff !important;
+}
+
 .section {
   padding: 30px 0;
 }
 
+.section-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section-title h2 {
+  margin-bottom: 15px;
+}
+
+.go-back-link {
+  display: block;
+  color: white;
+  margin-bottom: 25px;
+}
+
+.go-back-link:hover span {
+  text-decoration: underline;
+}
+
+.alert {
+  padding: 20px 15px;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
 
 /* Header */
 .logo a {
@@ -73,11 +115,10 @@ button {
   justify-content: space-between;
   align-items: center;
   padding: 25px 30px;
-  /* background: white; */
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(100% - 60px);
+  width: 100%;
   z-index: 1;
   transition: all .3s ease-in-out;
 }
@@ -136,6 +177,68 @@ button {
   color: var(--primaryColor);
 }
 
+@media (max-width: 768px) {
+  .nav {
+    display: block;
+  }
+
+  .nav .logo {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+  }
+
+  .nav ul.nav-menu {
+    display: none;
+    text-align: center;
+  }
+
+  .nav ul.nav-menu li.nav-link {
+    display: block;
+    padding: 25px;
+    margin-left: 0;
+  }
+
+  .nav .hamburger-menu {
+    float: right;
+    border: none;
+    padding: 20px 15px;
+    border-radius: 4px;
+    background: none;
+    border: 1px solid var(--primaryBgColor);
+  }
+
+  .nav .hamburger-menu span {
+    display: block;
+    background: var(--primaryBgColor);
+    padding: 0;
+    width: 25px;
+    height: 2px;
+    position: relative;
+  }
+
+  .nav .hamburger-menu span::before,
+  .nav .hamburger-menu span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primaryBgColor);
+  }
+  .nav .hamburger-menu span::before {
+    top: 6px;
+  }
+
+  .nav .hamburger-menu span::after {
+    bottom: 6px;
+  }
+
+  .nav .hamburger-menu:focus {
+    outline: 0;
+  }
+}
+
 /* Header */
 header {
   width: 100%;
@@ -164,12 +267,33 @@ header .content {
   text-align: center;
 }
 
+header.compact-header {
+  height: auto;
+}
+
+header.compact-header .content {
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  text-align: left;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 header .content h1 {
   margin-bottom: 15px;
 }
 
 header .content p {
   margin-bottom: 25px;
+}
+
+@media (max-width: 900px) {
+  header .content {
+    width: 100%;
+    max-width: 500px;
+  }
 }
 
 /* About */
@@ -182,6 +306,10 @@ header .content p {
 .about-us img {
   width: auto;
   height: 500px;
+}
+
+.about-us .left-side {
+  margin-right: 5px;
 }
 
 .about-us .left-side h2 {
@@ -208,13 +336,15 @@ header .content p {
   max-height: 500px;
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 25px;
-}
+@media (max-width: 768px) {
+  .about-us {
+    flex-direction: column;
+  }
 
-.section-title h2 {
-  margin-bottom: 15px;
+  .about-us .left-side {
+    margin-bottom: 20px;
+    text-align: center;
+  }
 }
 
 /* Gallery */
@@ -225,7 +355,7 @@ app-gallery {
   position: relative;
 }
 app-gallery figure {
-  width: calc(25% - 30px);
+  width: 25%;
   padding: 0 15px;
   margin: 0;
   display: inline-block;
@@ -302,8 +432,25 @@ app-gallery figure:hover figcaption {
 
 @media (max-width: 768px) {
   app-gallery figure {
-    width: calc(33.33% - 30px);
+    width: calc(33.33% - 10px);
     padding: 0 5px;
+  }
+
+  app-gallery figure::after {
+    left: 5px;
+    width: calc(100% - 10px);
+  }
+}
+
+@media (max-width: 600px) {
+  app-gallery figure {
+    width: 100%;
+    padding: 0;
+  }
+
+  app-gallery figure::after {
+    left: 0px;
+    width: 100%;
   }
 }
 
@@ -315,10 +462,34 @@ app-gallery figure:hover figcaption {
 }
 
 #price-section .content li {
-  border: 1px solid black;
+  border: 1px solid var(--primaryBgColor);
+  color: var(--primaryBgColor);
   padding: 25px;
   border-radius: 5px;
+  transition: all .3s ease-in-out;
 }
+
+
+#price-section .content li:hover {
+  border: 1px solid var(--primaryBgColor);
+  color: #fff;
+  background: var(--primaryBgColor);
+  cursor: pointer;
+}
+
+
+@media (max-width: 700px) {
+  #price-section .content ul {
+    display: block;
+    text-align: center;
+  }
+
+  #price-section .content li {
+    margin-bottom: 25px;
+  }
+}
+
+/* Footer */
 
 footer {
   padding: 30px 0;
@@ -326,4 +497,56 @@ footer {
   font-size: 16px;
   font-weight: 300;
   background: var(--primaryBgColor);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
+/* request.hmtl */
+[appFormGroup] {
+  text-align: center;
+}
+
+[appFormGroup]  input[type="text"],
+[appFormGroup]  input[type="email"] {
+  width: 50%;
+  padding: 18px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--primaryBgColor);
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+[appFormGroup] select {
+  width: 50%;
+  padding: 18px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--primaryBgColor);
+  margin-bottom: 15px;
+  font-size: 16px;
+  display: inline-block;
+}
+
+[appFormGroup]  input[type="file"] {
+  margin: 30px;
+}
+
+[appFormGroup] input[type="submit"] {
+  border-radius: 6px;
+  width: 50%;
+  cursor: pointer;
+}
+
+[appFormGroup] input[type="submit"]:hover {
+  color: var(--primaryColor);
+}
+
+@media (max-width: 768px) {
+  [appFormGroup]  input[type="text"],
+  [appFormGroup]  input[type="email"],
+  [appFormGroup]  input[type="submit"],
+  [appFormGroup] select {
+    width: 100%;
+  }
 }

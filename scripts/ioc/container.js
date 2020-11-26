@@ -27,8 +27,8 @@ export default class Container {
     });
   }
 
-  get(serviceClass, elementTarget = null) {
-    return this.services[serviceClass] || this.directives[serviceClass][elementTarget];
+  get(serviceClass) {
+    return this.services[serviceClass];
   }
 
   remove(serviceClass, elementTarget = null) {

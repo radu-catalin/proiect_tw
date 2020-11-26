@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programare | Tatto.</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/style.css" />
+</head>
+<body>
+  <nav class="nav" appStickyNav>
+    <div class="logo">
+      <a href="#"><span>T</span>atto.</a>
+    </div>
+  </nav>
+<header class="compact-header">
+    <div class="content container">
+      <a class="go-back-link" href="/index.html">
+        <i class="icon icon-arrow-left"></i>
+        <span>Prima pagină</span></a>
+      <h1>Programare</h1>
+    </div>
+  </header>
+
+
+  <main>
+    <section id="form-section" class="section">
+      <div class="container">
+        <div class="content">
+          <form method="POST" appFormGroup>
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Nume" required />
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Email" required />
+            </div>
+            <div class="form-group">
+              <select name="tattoType" placeholder="Tip tatuaj" required>
+                <option value="">-- Selectează --</option>
+                <option value="Alb/Negru">Alb/Negru</option>
+                <option value="Color">Color</option>
+                <option value="Realistic/Portret">Realistic/Portret</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="file" name="image" placeholder="Poza" />
+            </div>
+            <div class="form-group">
+              <input class="primary-button" type="submit" value="Trimite" submitForm />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      Proiect realizat de Radu Cătălin-Gabriel, Grupa 212
+    </div>
+  </footer>
+  <script type="module" src="scripts/index.js"></script>
+</body>
+</html>
