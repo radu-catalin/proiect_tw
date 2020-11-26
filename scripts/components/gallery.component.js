@@ -22,10 +22,13 @@ export default class GalleryComponent extends HTMLElement {
     this.initProperties();
     this.render();
     this.startInterval();
+    this.addEventListener('mouseover', this.pauseSlide.bind(this));
+    this.addEventListener('mouseout', this.startInterval.bind(this));
   }
 
   initProperties() {
     this.speed = this.getAttribute('speed');
+    this.animation = this.getAttribute('animation');
     this.auto = this.getAttribute('auto-increment') === 'true';
     this.interval = +this.getAttribute('interval');
 
@@ -50,7 +53,7 @@ export default class GalleryComponent extends HTMLElement {
     });
 
     this.innerHTML = `
-      <div carousel-container style="transition: transform ${this.speed} ease-in-out;">
+      <div carousel-container style="transition: transform ${this.speed} ${this.animation};">
         ${content}
       </div>
     `;
@@ -77,6 +80,10 @@ export default class GalleryComponent extends HTMLElement {
       this.startInterval();
       this.slideAction()
     });
+  }
+
+  pauseSlide() {
+    clearInterval(this.intervalSubscription);
   }
 
   slideAction(direction = 1) {

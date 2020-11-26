@@ -489,18 +489,6 @@ app-gallery figure:hover figcaption {
   }
 }
 
-/* Footer */
-
-footer {
-  padding: 30px 0;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 300;
-  background: var(--primaryBgColor);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
 
 
 /* request.hmtl */
@@ -549,4 +537,41 @@ footer {
   [appFormGroup] select {
     width: 100%;
   }
+}
+
+
+/* admin.html */
+.admin-table {
+  width: 100%;
+  text-align: center;
+  border-spacing: 0;
+}
+
+.admin-table thead {
+  background: gray;
+  padding: 0;
+}
+
+.admin-table tbody {
+  background: rgb(201, 201, 201);
+}
+
+.admin-table th,
+.admin-table td {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 15px;
+}
+
+/* Footer */
+
+footer {
+  padding: 30px 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  background: var(--primaryBgColor);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

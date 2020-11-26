@@ -1,4 +1,5 @@
-import GalleryComponent from './components/gallery-component.js';
+import GalleryComponent from './components/gallery.component.js';
+import ListRequestsComponent from './components/list-requests.component.js';
 import { FormGroupDirective } from './directives/form-group.directive.js';
 import { HamburgerMenuDirective } from './directives/hamburger-menu.directive.js';
 import { StickyNavDirective } from './directives/sticky-nav.directive.js';
@@ -11,7 +12,7 @@ import { RequestService } from './services/request.service.js';
 });
 
 // Components initialization
-[GalleryComponent].forEach((component) => {
+[GalleryComponent, ListRequestsComponent].forEach((component) => {
   customElements.define(component.componentName, component);
 });
 
