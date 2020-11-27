@@ -37,6 +37,7 @@ export class HamburgerMenuDirective extends Directive {
   toggleHamburgerHandler() {
     if (!this.hamburgerBtn && window.innerWidth <= 768) {
       this.initHamburgerBtn();
+      this.target.style.display = 'none';
       this.target.parentNode.insertBefore(this.hamburgerBtn, this.target);
     } else if (window.innerWidth > 768 && this.hamburgerBtn) {
       this.target.style.display = 'block';

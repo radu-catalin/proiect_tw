@@ -89,6 +89,7 @@ export default class GalleryComponent extends HTMLElement {
   slideAction(direction = 1) {
     const imgWidth = this.children[0].children[0].offsetWidth;
     const numberImgWindow = parseInt(this.offsetWidth / imgWidth + 0.5);
+    
     if (
         (this.counter + numberImgWindow < this.sources.length || direction === -1) &&
         this.counter >= 0

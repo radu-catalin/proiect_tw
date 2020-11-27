@@ -189,12 +189,15 @@ main {
     top: 15px;
   }
 
-  .nav ul.nav-menu {
-    display: none;
+  .nav ul[appHamburgerMenu].nav-menu {
     text-align: center;
   }
+  .nav ul.nav-menu {
+    /* display: none; */
+    text-align: right;
+  }
 
-  .nav ul.nav-menu li.nav-link {
+  .nav ul[appHamburgerMenu].nav-menu li.nav-link {
     display: block;
     padding: 25px;
     margin-left: 0;

@@ -1,4 +1,4 @@
-import { RequestStatusEnum } from '../enums/request.enum.js';
+import { RequestStatusEnum, RequestTattoTypeEnum } from '../enums/request.enum.js';
 
 export class RequestService {
   constructor() {}
@@ -17,27 +17,35 @@ export class RequestService {
       {
         name: 'Radu',
         email: 'radu@email.com',
-        tattoType: 'Alb/Negru',
+        tattoType: RequestTattoTypeEnum.WHITE_BLACK,
         status: RequestStatusEnum.ACTIV,
-        date: new Date('December 17, 2020 03:24:00'),
+        date: new Date('October 27, 2020 18:30'),
         image: null
       },
       {
         name: 'Ionel',
         email: 'ionel@email.com',
-        tattoType: 'Color',
+        tattoType: RequestTattoTypeEnum.COLOR,
         status: RequestStatusEnum.ACTIV,
-        date: new Date('December 17, 2020 03:24:00'),
+        date: new Date('October 23, 2020 03:30'),
         image: null
       },
       {
         name: 'Georgel',
         email: 'georgel@email.com',
-        tattoType: 'Color',
+        tattoType: RequestTattoTypeEnum.COLOR,
         status: RequestStatusEnum.ANULAT,
-        date: new Date('December 17, 2020 03:24:00'),
+        date: new Date('December 17, 2020 19:00'),
         image: null
-      }
+      },
+      {
+        name: 'Ionel',
+        email: 'ionel@email.com',
+        tattoType: RequestTattoTypeEnum.COLOR,
+        status: RequestStatusEnum.ACTIV,
+        date: new Date('October 23, 2020 03:30'),
+        image: null
+      },
     ];
   }
 }
