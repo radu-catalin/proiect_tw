@@ -1,3 +1,5 @@
+import { RequestStatusEnum } from '../enums/request.enum.js';
+
 export class RequestService {
   constructor() {}
 
@@ -14,14 +16,26 @@ export class RequestService {
     return [
       {
         name: 'Radu',
-        email: 'radu@gmail.com',
+        email: 'radu@email.com',
         tattoType: 'Alb/Negru',
+        status: RequestStatusEnum.ACTIV,
+        date: new Date('December 17, 2020 03:24:00'),
         image: null
       },
       {
         name: 'Ionel',
-        email: 'ionel@gmail.com',
+        email: 'ionel@email.com',
         tattoType: 'Color',
+        status: RequestStatusEnum.ACTIV,
+        date: new Date('December 17, 2020 03:24:00'),
+        image: null
+      },
+      {
+        name: 'Georgel',
+        email: 'georgel@email.com',
+        tattoType: 'Color',
+        status: RequestStatusEnum.ANULAT,
+        date: new Date('December 17, 2020 03:24:00'),
         image: null
       }
     ];

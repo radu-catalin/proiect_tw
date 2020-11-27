@@ -30,22 +30,25 @@
         <div class="content">
           <form method="POST" appFormGroup>
             <div class="form-group">
-              <input type="text" name="name" placeholder="Nume" required />
+              <input type="text" name="name" placeholder="Nume Complet*" required />
             </div>
             <div class="form-group">
-              <input type="email" name="email" placeholder="Email" required />
+              <input type="text" name="phoneNumber" placeholder="Număr de telefon*" required />
             </div>
             <div class="form-group">
-              <select name="tattoType" placeholder="Tip tatuaj" required>
+              <input type="email" name="email" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <select name="tattoType" placeholder="Tip tatuaj*" required>
                 <option value="">-- Selectează --</option>
                 <option value="Alb/Negru">Alb/Negru</option>
                 <option value="Color">Color</option>
                 <option value="Realistic/Portret">Realistic/Portret</option>
               </select>
             </div>
-            <div class="form-group">
-              <input type="file" name="image" placeholder="Poza" />
-            </div>
+            <!-- <div class="form-group">
+              <input type="file" name="image" />
+            </div> -->
             <div class="form-group">
               <input class="primary-button" type="submit" value="Trimite" submitForm />
             </div>

@@ -12,6 +12,7 @@ body {
   margin: 0;
   position: relative;
   min-height: 100vh;
+  background: rgb(245,245,245);
 }
 
 * {
@@ -318,6 +319,7 @@ header .content p {
 
 .about-us .right-side {
   position: relative;
+  width: 50%;
 }
 
 .about-us .right-side::before {
@@ -333,7 +335,8 @@ header .content p {
 
 .about-us .right-side img {
   display: block;
-  max-height: 500px;
+  object-fit: cover;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -345,6 +348,10 @@ header .content p {
     margin-bottom: 20px;
     text-align: center;
   }
+
+  .about-us .right-side {
+    width: 100%;
+  }
 }
 
 /* Gallery */
@@ -354,6 +361,7 @@ app-gallery {
   white-space: nowrap;
   position: relative;
 }
+
 app-gallery figure {
   width: 25%;
   padding: 0 15px;
@@ -361,11 +369,14 @@ app-gallery figure {
   display: inline-block;
   position: relative;
   overflow: hidden;
+  height: 500px;
 }
 
 app-gallery img {
   width: 100%;
   display: block;
+  height: 100%;
+  object-fit: cover;
 }
 
 app-gallery figure::after {
@@ -430,9 +441,10 @@ app-gallery figure:hover figcaption {
   transform: translateY(-50%);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   app-gallery figure {
-    width: calc(33.33% - 10px);
+    width: 33.33% !important;
+    height: 400px;
     padding: 0 5px;
   }
 
@@ -442,9 +454,9 @@ app-gallery figure:hover figcaption {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   app-gallery figure {
-    width: 100%;
+    width: 100% !important;
     padding: 0;
   }
 
@@ -511,9 +523,15 @@ app-gallery figure:hover figcaption {
   padding: 18px 12px;
   border-radius: 6px;
   border: 1px solid var(--primaryBgColor);
+  background: #fff;
   margin-bottom: 15px;
   font-size: 16px;
   display: inline-block;
+  cursor: pointer;
+}
+
+[appFormGroup] select:focus {
+  outline: 0;
 }
 
 [appFormGroup]  input[type="file"] {
@@ -541,26 +559,47 @@ app-gallery figure:hover figcaption {
 
 
 /* admin.html */
+app-list-requests {
+  overflow-y: auto;
+  display: block;
+}
+
 .admin-table {
   width: 100%;
   text-align: center;
   border-spacing: 0;
+  background: white;
 }
 
 .admin-table thead {
-  background: gray;
+  background: inherit;
   padding: 0;
+  color: rgba(0,0,0,.54);
 }
 
 .admin-table tbody {
-  background: rgb(201, 201, 201);
+  background: inherit;
+  color: rgba(0,0,0,.54);
+}
+
+.admin-table tbody tr {
+  transition: all .3s ease-in-out;
+}
+
+.admin-table tbody tr.strike-row {
+  text-decoration: line-through;
+  color: red;
+}
+
+.admin-table tbody tr:hover {
+  background: rgba(0,0,0,.12);
+  cursor: pointer;
 }
 
 .admin-table th,
 .admin-table td {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  padding: 15px;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  padding: 25px;
 }
 
 /* Footer */
