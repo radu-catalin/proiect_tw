@@ -17,7 +17,7 @@ class RequestController extends BaseController {
 
   get() {
     this.router.get(this.path, (req, res, next) => {
-      res.sendFile(path.join(__dirname, '../../../views/request.html'));
+      res.sendFile(path.resolve('src/app/views/request.html'));
     });
 
     this.router.post(this.path, async (req, res, next) => {

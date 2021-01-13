@@ -17,7 +17,7 @@ class ListRequestsController extends BaseController {
 
   get() {
     this.router.get(this.path, (req, res, next) => {
-      res.sendFile(path.join(__dirname, '../../../views/admin.html'));
+      res.sendFile(path.resolve('src/app/views/admin.html'));
     });
 
     this.router.get('/get' + this.path, (req, res, next) => {

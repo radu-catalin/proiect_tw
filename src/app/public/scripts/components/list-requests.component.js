@@ -65,6 +65,6 @@ export default class ListRequestsComponent extends HTMLElement {
   }
 
   formatDate(date) {
-    return `${date.getHours()}:${date.getMinutes()} ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+    return `${date.getHours()}:${date.getMinutes()} ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   }
 }

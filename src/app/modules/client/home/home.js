@@ -14,7 +14,7 @@ class HomeController extends BaseController {
 
   get() {
     this.router.get(this.path, (req, res, next) => {
-      res.sendFile(path.join(__dirname, '../../../views/index.html'));
+      res.sendFile(path.resolve('src/app/views/index.html'));
     });
   }
 }
