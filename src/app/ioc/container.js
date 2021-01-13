@@ -5,7 +5,7 @@ class Container {
   constructor() { }
 
   add(service) {
-    this.services.add(service);
+    this.services.set(service, new service());
   }
 
   get(service) {

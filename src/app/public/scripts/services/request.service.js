@@ -3,16 +3,34 @@ import { RequestStatusEnum, RequestTattoTypeEnum } from '../enums/request.enum.j
 export class RequestService {
   constructor() {}
 
-  send(data) {
+  async send(data) {
     alert(`
       Cererea a fost trimisa!
       nume: ${data.name}
       email: ${data.email}
       tip tatuaj: ${data.tattoType}
     `);
+
+    data.date = (new Date()).toISOString();
+
+    const res = await fetch('http://localhost:3030/request', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
   }
 
-  retrieve() {
+  async retrieve() {
+    let list = await fetch('http://localhost:3030/get/admin');
+    list = await list.json();
+
+    list.forEach(element => {
+      element.date = new Date(element.date);
+    });
+
+    return list;
     return [
       {
         name: 'Radu',

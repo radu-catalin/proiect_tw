@@ -9,8 +9,7 @@ export class FormGroupDirective extends Directive {
     name: '',
     email: '',
     phoneNumber: '',
-    tattoType: '',
-    image: null
+    tattoType: ''
   };
 
   constructor(target) {
@@ -28,7 +27,7 @@ export class FormGroupDirective extends Directive {
       event.preventDefault();
 
       this.formData.name = this.target.querySelector('[name="name"]').value;
-      this.formData.phoneNumber = this.target.querySelector('[name="email"]').value;
+      this.formData.phoneNumber = this.target.querySelector('[name="phoneNumber"]').value;
       this.formData.email = this.target.querySelector('[name="email"]').value;
       this.formData.tattoType = this.target.querySelector('[name="tattoType"]').value;
       this.requestService.send(this.formData);

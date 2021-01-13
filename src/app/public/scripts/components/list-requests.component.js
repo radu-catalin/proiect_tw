@@ -20,9 +20,9 @@ export default class ListRequestsComponent extends HTMLElement {
     super();
   }
 
-  connectedCallback() {
+  async connectedCallback() {
     this.requestService = container.get(RequestService);
-    this.listRequests = this.requestService.retrieve();
+    this.listRequests = await this.requestService.retrieve();
     this.render();
   }
 
@@ -42,7 +42,7 @@ export default class ListRequestsComponent extends HTMLElement {
           <td>${request.tattoType}</td>
           <td>${request.status}</td>
           <td>${
-            !request.date 
+            !request.date
             ? '-'
             : this.formatDate(request.date)}</td>
           <td><button>. . .</button></td>

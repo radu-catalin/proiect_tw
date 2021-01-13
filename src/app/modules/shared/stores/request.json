@@ -1,0 +1,44 @@
+[
+    {
+        "_id": 1,
+        "name": "Radu",
+        "email": "radu@email.com",
+        "tattoType": "Alb/Negru",
+        "status": "Activ",
+        "date": "2021-01-11T20:49:01.552Z"
+    },
+    {
+        "_id": 2,
+        "name": "Ionel",
+        "email": "ionel@email.com",
+        "tattoType": "Color",
+        "status": "Activ",
+        "date": "2021-01-09T20:51:01.552Z"
+    },
+    {
+        "_id": 3,
+        "name": "Robert",
+        "email": "robert@gmail.com",
+        "tattoType": "Alb/Negru",
+        "status": "Anulat",
+        "date": "2021-01-05T10:32:01.552Z"
+    },
+    {
+        "name": "234",
+        "email": "rcatalingabriel@gmail.com",
+        "phoneNumber": "3232",
+        "tattoType": "Alb/Negru",
+        "date": "2021-01-13T20:12:01.552Z",
+        "_id": 4,
+        "status": "Activ"
+    },
+    {
+        "name": "Catalin Radu",
+        "email": "catalin-gabriel.radu@my.fmi.unibuc.ro",
+        "phoneNumber": "2343323",
+        "tattoType": "Realistic/Portret",
+        "date": "2021-01-13T20:51:15.957Z",
+        "_id": 5,
+        "status": "Activ"
+    }
+]
